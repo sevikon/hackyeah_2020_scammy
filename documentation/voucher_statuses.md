@@ -1,0 +1,8 @@
+## Voucher Status
+
+| Status| Value |
+|---|---|
+|VOUCHER_STATUS_PENDING|0|
+|VOUCHER_STATUS_PAID|1|
+|VOUCHER_STATUS_REFUNDED|2|
+|VOUCHER_STATUS_USED|3|

@@ -1,0 +1,24 @@
+$colorOrange: #ffb822;
+$colorGreen: #34bfa3;
+$colorRed: #f4516c;
+$colorGray: #eaeaea;
+$colorWhite: #fff;
+$colorBorder: #cccccc;
+
+$colorBrand: #716aca;
+$colorGrayBlue: #f2f2f2;
+$colorGrayDark: #7b7e8a;
+$colorGrayLight: #a4a6ae;
+$colorGrayVeryDark: #323339;
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow: inset $top $left $blur $color;
+    -moz-box-shadow: inset $top $left $blur $color;
+    box-shadow: inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
