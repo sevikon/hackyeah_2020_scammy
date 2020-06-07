@@ -17,12 +17,8 @@ class OverviewComponent extends Component {
         keyword_statistics_kind: List(),
         statistics: Map(
           {
-            this_month_keywords: 0,
-            this_month_incomes: 0,
-            this_month_orders: 0,
-            total_keywords: 0,
-            total_incomes: 0,
-            total_orders: 0
+            this_month_websites: 4,
+            total_websites: 4,
           }
         )
       })
@@ -59,7 +55,7 @@ class OverviewComponent extends Component {
             <div className="kt-portlet__body  kt-portlet__body--fit">
               <div className="row">
                 <div className="col-xl-6">
-                  <ChartWidget chartEntries={statistics.get('keyword_statistics_day')}/>
+                  <Recent/>
                 </div>
                 <div className="col-xl-6">
                   <div className="kt-portlet">
@@ -74,7 +70,7 @@ class OverviewComponent extends Component {
                                 <span className="kt-widget1__desc">Ostatni tydzień</span>
                               </div>
                               <span
-                                className="kt-widget1__number kt-font-brand">{keywordStatistics.get('this_month_incomes')}</span>
+                                className="kt-widget1__number kt-font-brand">{keywordStatistics.get('this_month_websites')}</span>
                             </div>
 
                           </div>
@@ -90,7 +86,7 @@ class OverviewComponent extends Component {
                                 <span className="kt-widget1__desc">Ostatni miesiąc</span>
                               </div>
                               <span
-                                className="kt-widget1__number kt-font-danger">{keywordStatistics.get('total_orders')}</span>
+                                className="kt-widget1__number kt-font-danger">{keywordStatistics.get('total_websites')}</span>
                             </div>
 
                           </div>
@@ -99,9 +95,6 @@ class OverviewComponent extends Component {
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="col-xl-12">
-                  <Recent/>
                 </div>
               </div>
             </div>

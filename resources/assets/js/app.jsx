@@ -18,6 +18,8 @@ const SettingsRoutes = lazy(() => import('pages/Settings/SettingsRoutes'))
 const PasswordReset = lazy(() => import('pages/PasswordReset/PasswordReset'))
 const ForgotPassword = lazy(() => import('pages/ForgotPassword/ForgotPassword'))
 const KeywordsPage = lazy(() => import('pages/Keywords/Keywords'))
+const WebsitesPage = lazy(() => import('pages/Websites/Websites'))
+const WebsitesSinglePage = lazy(() => import('pages/Websites/SingleWebsite'))
 
 const withDashboard = (ContentComponent, {pageName, actions} = {}) => {
   return props => (
@@ -43,8 +45,20 @@ const OverviewWithDashboard = withDashboard(Overview, {
             aria-haspopup="true" aria-expanded="false">
         Słowa kluczowe
       </Link>
+      <Link to="/websites" className="btn btn-success kt-subheader__btn-options" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+        Domeny
+      </Link>
     </div>
   )
+})
+
+const WebsitesSinglePageWithDashboard = withDashboard(WebsitesSinglePage, {
+  pageName: 'wyspasolna.pl',
+})
+
+const WebsitesPageWithDashboard = withDashboard(WebsitesPage, {
+  pageName: 'Domeny w systemie',
 })
 
 const KeywordsPageWithDashboard = withDashboard(KeywordsPage, {
@@ -102,6 +116,8 @@ export const App = () => (
             {/* Dashboard routes */}
             <Route exact path="/" component={OverviewWithDashboard}/>
             <Route exact path="/keywords" component={KeywordsPageWithDashboard}/>
+            <Route exact path="/websites" component={WebsitesPageWithDashboard}/>
+            <Route exact path="/websites/1" component={WebsitesSinglePageWithDashboard}/>
             <Route path="/settings" component={SettingsWithDashboard}/>
             {/* 404 route */}
             <Route path="*" exact={true} render={() => <NotFound/>}/>

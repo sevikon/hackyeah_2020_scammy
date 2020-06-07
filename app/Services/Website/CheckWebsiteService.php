@@ -1,30 +1,20 @@
 <?php
 
-namespace App\Services\Keyword;
+namespace App\Services\Website;
 
 use App\Services\Serp\SerpResultsService;
 use App\Services\WebsiteContent\WebsiteContentService;
-use DOMDocument;
 
-class CheckKeywordService
+class CheckWebsiteService
 {
-    public static function generate_report($keyword)
+    public static function generate_report($website)
     {
-        $serp_data = SerpResultsService::get_data($keyword);
+        $serp_data = SerpResultsService::get_data($website);
         $link = $serp_data['links'][0];
         $link_data = WebsiteContentService::get_website_content($link);
-        \Log::info($link);
         $text = $link_data->data;
         $website_html_content = iconv(mb_detect_encoding($text, mb_detect_order(), true), "UTF-8", $text);
-//        \Log::info($website_html_content);
         $link_data = WebsiteContentService::render_website_html($website_html_content);
-
-        preg_match("/<body[^>]*>(.*?)<\/body>/is", $website_html_content, $matches);
-
-        $website_text = strip_tags($matches[1]);
-        $website_text = preg_replace('/\s+/', ' ', $website_text);
-        \Log::info($website_text);
-
         WebsiteContentService::download_website_pdf($link_data->data->filename);
 //        dd($link_data->data->filename);
     }
@@ -56,7 +46,7 @@ class CheckKeywordService
                 }
             }
         }
-        \Log::info($text);
+        dd($text);
     }
 
     /**

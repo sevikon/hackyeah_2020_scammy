@@ -17,6 +17,8 @@ Route::group(['middleware' => ['auth:api']], function () {
         Route::prefix('keywords')
             ->group(base_path('routes/admin/keywords.php'));
 
+        Route::prefix('websites')
+            ->group(base_path('routes/admin/websites.php'));
     });
 });
 

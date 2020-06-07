@@ -38,7 +38,7 @@ class KeywordCheckCommand extends Command
     public function handle()
     {
         $keyword = 'apartamenty inwestycyjne';
-//        CheckKeywordService::generate_report($keyword);
+        CheckKeywordService::generate_report($keyword);
         CheckKeywordService::analyze_results();
     }
 }
